@@ -1,34 +1,45 @@
-<div class="container">
+<div class="container mt-4 mb-4">
+  <h1>Formulario reactivo login</h1>
+</div>
+
+<div class="container" >
   <div class="row">
     <div class="col-3">
-      <div>
-        {{this.formularioPersona.value | json}}
-      </div>
 
       <form [formGroup]="formularioPersona" (ngSubmit)="loginUsuario()">
 
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div class="mb-4 center">
+          <label  for="exampleInputEmail1" class="form-label">Email address</label>
+          <input  class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp" (focusout)="validarEmail()"
+                  [ngClass]="{'is-invalid': formularioPersona.get('email')?.errors && formularioPersona.get('email')?.touched || !isEmailValid}">
+          <div class="invalid-feedback">
+            <small *ngIf="formularioPersona.get('email')?.errors?.['required'] && formularioPersona.get('email')?.touched">Debes ingresar un correo</small>
+            <small *ngIf="!isEmailValid && !formularioPersona.get('email')?.errors?.['required']">Debes ingresar un correo v&aacute;lido</small>
+          </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+          <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1"
+                 [ngClass]="{'is-invalid': formularioPersona.get('password')?.errors && formularioPersona.get('password')?.touched}">
+          <div class="invalid-feedback">
+            <small *ngIf="formularioPersona.get('password')?.errors?.['required'] && formularioPersona.get('password')?.touched">El campo es requerido</small>
+          </div>
         </div>
 
-        <div class="mb-3 form-check">
+        <div class="mb-2 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
 
-        <div class="mb-3 form-check">
-          <span >¿Olvidaste tu contraseña?</span>
+        <div class="mb-2">
+          <a href="">¿Olvidaste tu contraseña?</a>
+          <span>¿No tienes cuenta?</span>
+          <a href="">Registrate</a>
         </div>
 
-        <div>
-          <button type="submit" class="btn btn-primary" [disabled]="!this.formularioPersona.valid" >Submit</button>
+        <div class="mt-3">
+          <button type="submit" class="btn btn-primary" [disabled]="!this.formularioPersona.valid" (click)="loginUsuario()">Login</button>
         </div>
 
       </form>

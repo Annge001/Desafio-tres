@@ -5,11 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class ValidatorService {
 
+  //agregue funcion para validar formato de email con regex en un servicio.
   esEmailValido(email: string):boolean {
     let mailValido = false;
     'use strict';
 
-    var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var EMAIL_REGEX = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
     if (email.match(EMAIL_REGEX)){
       mailValido = true;
