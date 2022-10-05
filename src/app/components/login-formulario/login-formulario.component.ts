@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login-formulario',
   templateUrl: './login-formulario.component.html',
   styleUrls: ['./login-formulario.component.css']
 })
-export class FormularioComponent implements OnInit {
+export class LoginFormularioComponent implements OnInit {
 
   formularioPersona: FormGroup;
 
@@ -14,15 +14,17 @@ export class FormularioComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.formularioPersona = fb.group({
-      email: new FormControl('',[]),
-      password: new FormControl('',[]),
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
   ngOnInit(): void {
   }
 
+  loginUsuario(){
+    console.log(this.formularioPersona);
+  }
+
 }
 
-export class LoginFormularioComponent {
-}

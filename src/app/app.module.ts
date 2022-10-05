@@ -6,12 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ValidatorService} from "./services/validator.service";
-import { LoginFormularioComponent } from './components/login-formulario/login-formulario.component';
+import {LoginFormularioComponent} from './components/login-formulario/login-formulario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormularioComponent
+    LoginFormularioComponent,
+
   ],
   imports: [
     BrowserModule,
