@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormularioComponent } from './formulario/formulario.component';
+import {ValidatorService} from "./services/validator.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { FormularioComponent } from './formulario/formulario.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
