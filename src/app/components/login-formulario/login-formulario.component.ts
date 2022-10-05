@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+  selector: 'app-login-formulario',
+  templateUrl: './login-formulario.component.html',
+  styleUrls: ['./login-formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
 
@@ -22,4 +22,7 @@ export class FormularioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+}
+
+export class LoginFormularioComponent {
 }
